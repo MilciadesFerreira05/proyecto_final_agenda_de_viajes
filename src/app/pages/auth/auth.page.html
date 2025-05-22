@@ -1,12 +1,13 @@
-<app-header class="login-header" title="Login"></app-header>
+<app-header  title="Login" ></app-header>
 <ion-content>
 
-<div class=" d-flex-center">
+<div class="d-flex-center">
 
      <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
 
         <app-logo></app-logo>
 
+        <!-- ====== Email ====== -->
         <app-custom-input 
         autocomplete=""
         icon="mail-outline"
@@ -21,6 +22,7 @@
             <div *ngIf="form.controls.email.errors?.['email']">Ingrese un correo valido</div>
         </div>
 
+        <!-- ====== Password ====== -->
         <app-custom-input 
         [control]="form.controls.password"
         type="password"
@@ -33,10 +35,21 @@
             <div *ngIf="form.controls.password.errors?.['password']">Ingrese un correo valido</div>
         </div>
 
+    <p routerLink="forgot-password" class="ion-text-end">¿Olvidaste tu contraseña?</p>
+
     <ion-button expand="block" mode="ios" mode="ios" class="submit" type="submit" [disabled]="form.invalid">
         Ingresar
+        <ion-icon slot="end" name="log-in-outline"></ion-icon>
+
     </ion-button>
 
+    <ion-button class="ion-margin-top" routerLink="sing-up" fill="clear" color="black">
+        Registrarse 
+        <ion-icon slot="end" name="person-add-outline"></ion-icon>
+    </ion-button>
+
+
+    
     </form>
 </div>
 
